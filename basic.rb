@@ -42,6 +42,14 @@
 RUBY
     end
 
+  inject_into_file 'spec/spec_helper.rb' do <<-RUBY
+    
+require 'email_spec'
+include EmailSpec::Helpers
+include EmailSpec::Matchers
+
+RUBY
+
 # set up git repo
   git :init
   initializer '.gitignore', <<-CODE
