@@ -40,15 +40,16 @@
     end
 
 RUBY
-    end
+  end
 
-  inject_into_file 'spec/spec_helper.rb' do <<-RUBY
+  inject_into_file 'spec/spec_helper.rb' do <<-SPEC
     
 require 'email_spec'
 include EmailSpec::Helpers
 include EmailSpec::Matchers
 
-RUBY
+SPEC
+  end
 
 # set up git repo
   git :init
