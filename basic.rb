@@ -20,11 +20,13 @@
   gem 'haml', '>= 3.1.6'
   gem 'haml-rails', '>= 0.3.4', :group => :development
   gem 'devise'
+  gem 'machinist', '>= 2.0.0'
 
   run 'bundle install'
 
   generate 'devise:install'
   generate 'rspec:install'
+  generate 'machinist:install'
   generate 'email_spec:steps'
 
   inject_into_file 'config/application.rb', :after => "Rails::Application\n" do <<-RUBY
@@ -32,6 +34,7 @@
     config.generators do |g|
       g.test_framework :rspec, :views => false, :fixture => true
       g.template_engine :haml
+      g.fixture_replacement :machinist
     end
 
 RUBY
