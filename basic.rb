@@ -15,12 +15,14 @@
   run "rm public/index.html"
 
 # add gems
-  gem 'rspec-rails'
-  gem 'email_spec'
   gem 'haml', '>= 3.1.6'
-  gem 'haml-rails', '>= 0.3.4', :group => :development
   gem 'devise'
   gem 'machinist', '>= 2.0.0'
+  gem 'haml-rails', '>= 0.3.4', :group => :development
+  gem 'mail_safe', :group => :development
+  gem 'launchy', '>= 0.3.4', :group => :test
+  gem 'rspec-rails', :group => :test
+  gem 'email_spec', :group => :test
 
   run 'bundle install'
 
