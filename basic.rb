@@ -41,8 +41,14 @@
 
 RUBY
   end
+  inject_into_file 'config/environments/development.rb', :after => "Application.configure do\n" do <<-MAILER
 
-  inject_into_file 'spec/spec_helper.rb' do <<-SPEC
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+MAILER
+  end
+
+  inject_into_file 'spec/spec_helper.rb', :after => "end\n" do <<-SPEC
     
 require 'email_spec'
 include EmailSpec::Helpers
